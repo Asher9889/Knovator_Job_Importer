@@ -1,5 +1,6 @@
 class ApiErrorResponse extends Error {
     status: boolean;
+    statusCode: number;
     message: string;
     data: any;
     name: string;
@@ -7,6 +8,7 @@ class ApiErrorResponse extends Error {
     constructor(statusCode: number, message: string, data: any = null) {
         super(message);
         this.status = false;
+        this.statusCode = statusCode;
         this.name = "ApiErrorResponse";
         this.message = message;
         this.data = data;
@@ -20,3 +22,5 @@ class ApiErrorResponse extends Error {
 
 
 }
+
+export default ApiErrorResponse;

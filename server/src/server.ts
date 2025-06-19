@@ -1,10 +1,16 @@
-import express from "express";
+import express, { Response } from "express";
 import config from "./config";
+import connectMongoDB from "./db/connectMongoDB";
+import { globalErrorHandler } from "./middlewares";
+
+connectMongoDB()
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json({limit: "5mb"}));
+app.use(express.urlencoded({extended: true}));
 
+app.use(globalErrorHandler as any);
 
 app.listen(config.port, ()=>{
     console.log(`App is listening from port ${config.port}`)
