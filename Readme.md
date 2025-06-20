@@ -1,10 +1,10 @@
 | #  | Module                  | Task Description                                                       | Status        | Notes / Output Expected                      |
 | -- | ----------------------- | ---------------------------------------------------------------------- | ------------- | -------------------------------------------- |
-| 1  | 📁 Project Setup        | Create `/client` for Next.js and `/server` for Node.js                 | ⬜ Not Started | Folder structure created                     |
-| 2  |                         | Initialize Git repo, setup `.env` files and basic README               | ⬜ Not Started | `.env`, `.gitignore`, README.md created      |
-| 3  | 🧠 MongoDB              | Setup MongoDB Atlas project and connect Mongoose                       | ⬜ Not Started | Connection string tested                     |
-| 4  |                         | Create `Job.js` schema/model                                           | ⬜ Not Started | Fields: jobId, title, description, etc.      |
-| 5  |                         | Create `ImportLog.js` schema/model                                     | ⬜ Not Started | Fields: fileName, timestamp, stats, failures |
+| 1  | 📁 Project Setup        | Create `/client` for Next.js and `/server` for Node.js                 | ⬜ Done | Folder structure created                     |
+| 2  |                         | Initialize Git repo, setup `.env` files and basic README               | ⬜ Done | `.env`, `.gitignore`, README.md created      |
+| 3  | 🧠 MongoDB              | Setup MongoDB Atlas project and connect Mongoose                       | ⬜ Done | Connection string tested                     |
+| 4  |                         | Create `Job.js` schema/model                                           | ⬜ Done | Fields: jobId, title, description, etc.      |
+| 5  |                         | Create `ImportLog.js` schema/model                                     | ⬜ Done | Fields: fileName, timestamp, stats, failures |
 | 6  | 🌐 API Integration      | Build `fetchAndConvertXML.js` to get jobs from API and convert to JSON | ⬜ Not Started | Uses `axios` + `xml2js`                      |
 | 7  |                         | Normalize API response and push jobs to queue                          | ⬜ Not Started | JSON job format matches MongoDB schema       |
 | 8  |                         | Setup `node-cron` to run every hour                                    | ⬜ Not Started | Cron job working                             |

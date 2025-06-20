@@ -1,8 +1,10 @@
 import express, { Response } from "express";
+import dotenv from 'dotenv';
 import config from "./config";
 import connectMongoDB from "./db/connectMongoDB";
 import { globalErrorHandler } from "./middlewares";
 import apiRoutes from "./routes"
+dotenv.config();
 connectMongoDB()
 
 const app = express();

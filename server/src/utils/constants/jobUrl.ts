@@ -1,8 +1,4 @@
-interface IParams {
-    feed: string,
-}
-
-interface IJobFeedAPIs {
+export interface IJobFeedAPIs {
     baseURL?: string;
     params?: Record<string, string>;
     fullURL?: string;
