@@ -10,6 +10,7 @@ async function connectMongoDB(): Promise<void> {
     } catch (error: any) {
         const statusCode = StatusCodes.INTERNAL_SERVER_ERROR;
         const msg = error.message;
+        console.log("error", error)
         throw new ApiErrorResponse(statusCode, msg);
     }
 }

@@ -5,7 +5,7 @@ import connectMongoDB from "./db/connectMongoDB";
 import { globalErrorHandler } from "./middlewares";
 import apiRoutes from "./routes"
 dotenv.config();
-connectMongoDB()
+// connectMongoDB()
 
 const app = express();
 

@@ -1,4 +1,5 @@
 import { RedisOptions } from "ioredis";
+
 import config from ".";
 
 const redisConfig: RedisOptions = {

@@ -1,36 +1,36 @@
 import mongoose from "mongoose";
 import { Document, Schema } from "mongoose";
 
-interface IJob {
-    source: string;
-    jobId: string;
-    title: string;
-    description: string;
-    company?: string;
-    location?: string;
-    // type?: string;
-    // category?: string;
-    url: string;
-    postedAt?: Date;
-    // salary?: string;
-    // tags?: string[];
-    // remote?: boolean;
-    // metadata?: Record<string, any>;
-    createdAt?: Date;
-    updatedAt?: Date;
+interface IJob extends Document {
+  source: string;
+  jobId: string;
+  title: string;
+  description: string;
+  company?: string;
+  location?: string;
+  // type?: string;
+  // category?: string;
+  url: string;
+  postedAt?: Date;
+  // salary?: string;
+  // tags?: string[];
+  // remote?: boolean;
+  // metadata?: Record<string, any>;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
-  
+
 
 const jobSchema = new mongoose.Schema<IJob>(
   {
     source: {
       type: String,
-      required: true, // e.g., "jobicy" or "higheredjobs"
+      required: true, // "jobicy" or "higheredjobs"
     },
     jobId: {
       type: String,
       required: true,
-      unique: true, // used to prevent duplicates
+      unique: true, // to prevent duplicates
     },
     title: {
       type: String,
@@ -56,7 +56,7 @@ const jobSchema = new mongoose.Schema<IJob>(
     //   type: String,
     //   default: null,
     // },
-   
+
     url: {
       type: String,
       required: true,

@@ -1,3 +1,4 @@
-import Job from "./job";
+import ImportLog from "./import_log.model";
+import Job from "./job.model";
 
-export { Job }
+export { Job, ImportLog }
