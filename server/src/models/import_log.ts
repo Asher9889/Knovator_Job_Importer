@@ -1,6 +1,5 @@
 import mongoose, { Document } from "mongoose";
 
-// 1️⃣ Define TypeScript Interface
 export interface IImportFailure {
   jobId?: string;
   reason: string;
@@ -20,7 +19,6 @@ interface IImportLog extends Document{
   updatedAt?: Date;
 }
 
-// 2️⃣ Define Mongoose Schema
 const ImportFailureSchema = new mongoose.Schema<IImportFailure>({
   jobId: { type: String },
   reason: { type: String, required: true },
