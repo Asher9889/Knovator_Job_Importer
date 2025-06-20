@@ -1,6 +1,6 @@
 import { Worker } from "bullmq";
 // import { bullMQConnection } from "../config/redis";
-import JobModel from "../../models/job";
+import { Job } from "../../models";
 import { redisConfig } from "../../config/redis";
 
 interface JobPayload {
@@ -17,16 +17,18 @@ interface JobPayload {
 const jobWorker = new Worker<JobPayload>(
     "job-import-queue",
     async (job) => {
-      if (job.name === "job.upsert") {
+      if (job.name === "job-upsert") {
         const data = job.data;
+
+        console.log("data inside worker", data)
   
-        const existing = await JobModel.findOne({ jobId: data.jobId });
+        const existing = await Job.findOne({ jobId: data.jobId });
   
         if (existing) {
-          await JobModel.updateOne({ jobId: data.jobId }, data);
+          await Job.updateOne({ jobId: data.jobId }, {$set: data});
           console.log(`🔁 Job updated: ${data.jobId}`);
         } else {
-          await JobModel.create(data);
+          await Job.create(data);
           console.log(`✅ Job inserted: ${data.jobId}`);
         }
       }

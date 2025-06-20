@@ -21,7 +21,7 @@ interface IJob {
 }
   
 
-const JobSchema = new mongoose.Schema<IJob>(
+const jobSchema = new mongoose.Schema<IJob>(
   {
     source: {
       type: String,
@@ -87,6 +87,6 @@ const JobSchema = new mongoose.Schema<IJob>(
   }
 );
 
-const JobModel = mongoose.model<IJob>("Job", JobSchema);
+const Job = mongoose.model<IJob>("Job", jobSchema);
 
-export default JobModel
+export default Job

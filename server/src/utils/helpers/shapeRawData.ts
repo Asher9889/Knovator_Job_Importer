@@ -1,5 +1,6 @@
 function shapeRawData(json: any): any[] {
-    const items = json?.rss?.channel?.item;
+    const items = json?.RSS?.CHANNEL?.ITEM;
+
   
     if (!items) return [];
   

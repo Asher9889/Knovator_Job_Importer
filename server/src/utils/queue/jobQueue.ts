@@ -2,7 +2,7 @@ import { Queue } from "bullmq";
 import { redisConfig } from "../../config/redis";
 
 
-const jobQueue = new Queue("job-import-queue", {
+const jobQueue = new Queue("job-upsert", {
   connection: redisConfig,
 });
 

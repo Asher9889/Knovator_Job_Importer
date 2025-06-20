@@ -4,20 +4,26 @@ import { parseStringPromise } from "xml2js";
 import { ApiErrorResponse } from "../utils";
 import { IJobFeedAPIs } from "../utils/constants/jobUrl";
 
-async function fetchJob(feed: IJobFeedAPIs):Promise<any> {
+async function fetchJob(feed: IJobFeedAPIs): Promise<any> {
   try {
     const response = feed.fullURL
       ? await axios.get<string>(feed.fullURL)
       : await axios.get<string>(feed.baseURL!, { params: feed.params });
 
-    const jsonData = await parseStringPromise(response.data, {
+      
+
+    const jsObj = await parseStringPromise(response.data, {
       explicitArray: false,
       mergeAttrs: true,
+      strict: false,              // ← makes parser lenient (important)
+      xmlns: false,               // ← ignore XML namespaces
+      tagNameProcessors: [name => name.trim()],
     });
 
-    console.log("✅ Parsed JSON:", JSON.stringify(jsonData));
+    // const jsonData = JSON.stringify(jsObj)
 
-    return jsonData;
+
+    return jsObj;
   } catch (error: any) {
     const statusCode = StatusCodes.INTERNAL_SERVER_ERROR;
     const msg = error.message;

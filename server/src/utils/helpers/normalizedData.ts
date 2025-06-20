@@ -2,26 +2,26 @@ function normalizedData(data: any, source: string) {
     if (source.includes("jobicy")) {
       return {
         source: "jobicy",
-        jobId: data.guid || data.link,
-        title: data.title,
-        description: data["content:encoded"] || data.description,
-        company: data["dc:creator"] || "Unknown",
-        location: "Remote",
-        url: data.link,
-        postedAt: new Date(data.pubDate),
+        jobId: data.ID,
+        title: data.TITLE,
+        description: data.DESCRIPTION,
+        company: data['JOB_LISTING:COMPANY'] || "Unknown",
+        location: data['JOB_LISTING:LOCATION'] || "Unknown",
+        url: data["MEDIA:CONTENT"]["URL"],
+        postedAt: new Date(data.PUBDATE),
       };
     }
   
     if (source.includes("higheredjobs")) {
       return {
         source: "higheredjobs",
-        jobId: data.guid || data.link,
-        title: data.title,
-        description: data.description,
-        company: "HigherEdJobs",
-        location: "USA",
-        url: data.link,
-        postedAt: new Date(data.pubDate),
+        jobId: data.ID,
+        title: data.TITLE,
+        description: data.DESCRIPTION,
+        company: data['JOB_LISTING:COMPANY'] || "Unknown",
+        location: data['JOB_LISTING:LOCATION'] || "Unknown",
+        url: data["MEDIA:CONTENT"]["URL"],
+        postedAt: new Date(data.PUBDATE),
       };
     }
   

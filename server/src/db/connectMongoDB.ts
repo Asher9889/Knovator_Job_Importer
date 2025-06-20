@@ -5,7 +5,8 @@ import { ApiErrorResponse } from "../utils";
 
 async function connectMongoDB(): Promise<void> {
     try {
-        await mongoose.connect(config.mongoDBURL + "/" + config.dbName);
+        const connection = await mongoose.connect(config.mongoDBURL + "/" + config.dbName);
+        console.log(`Mongoose connected to ${connection.connection.name} database`)
     } catch (error: any) {
         const statusCode = StatusCodes.INTERNAL_SERVER_ERROR;
         const msg = error.message;
