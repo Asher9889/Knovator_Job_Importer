@@ -5,17 +5,17 @@ interface IJob {
     source: string;
     jobId: string;
     title: string;
+    description: string;
     company?: string;
     location?: string;
-    type?: string;
-    category?: string;
-    description?: string;
+    // type?: string;
+    // category?: string;
     url: string;
-    datePosted?: Date;
-    salary?: string;
-    tags?: string[];
-    remote?: boolean;
-    metadata?: Record<string, any>;
+    postedAt?: Date;
+    // salary?: string;
+    // tags?: string[];
+    // remote?: boolean;
+    // metadata?: Record<string, any>;
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -36,6 +36,10 @@ const JobSchema = new mongoose.Schema<IJob>(
       type: String,
       required: true,
     },
+    description: {
+      type: String,
+      default: null,
+    },
     company: {
       type: String,
       default: null,
@@ -44,42 +48,39 @@ const JobSchema = new mongoose.Schema<IJob>(
       type: String,
       default: null,
     },
-    type: {
-      type: String, // full-time, part-time, etc.
-      default: null,
-    },
-    category: {
-      type: String,
-      default: null,
-    },
-    description: {
-      type: String,
-      default: null,
-    },
+    // type: {
+    //   type: String, // full-time, part-time, etc.
+    //   default: null,
+    // },
+    // category: {
+    //   type: String,
+    //   default: null,
+    // },
+   
     url: {
       type: String,
       required: true,
     },
-    datePosted: {
+    postedAt: {
       type: Date,
       default: Date.now,
     },
-    salary: {
-      type: String,
-      default: null,
-    },
-    tags: {
-      type: [String],
-      default: [],
-    },
-    remote: {
-      type: Boolean,
-      default: false,
-    },
-    metadata: {
-      type: mongoose.Schema.Types.Mixed, // to store anything extra for future use
-      default: {},
-    },
+    // salary: {
+    //   type: String,
+    //   default: null,
+    // },
+    // tags: {
+    //   type: [String],
+    //   default: [],
+    // },
+    // remote: {
+    //   type: Boolean,
+    //   default: false,
+    // },
+    // metadata: {
+    //   type: mongoose.Schema.Types.Mixed, // to store anything extra for future use
+    //   default: {},
+    // },
   },
   {
     timestamps: true, // adds createdAt and updatedAt

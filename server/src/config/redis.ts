@@ -1,5 +1,4 @@
 import { RedisOptions } from "ioredis";
-import { ConnectionOptions } from "bullmq";
 import config from ".";
 
 const redisConfig: RedisOptions = {
@@ -7,8 +6,5 @@ const redisConfig: RedisOptions = {
     port: config.redisPort || 6379,
 };
 
-// const bullMQConnection: ConnectionOptions = {
-//     connection: redisConfig,
-// };
 
 export { redisConfig }
