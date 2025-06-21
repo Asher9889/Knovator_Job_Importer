@@ -2,7 +2,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 type Config = {
-    port: number;
+    portHTTP: number;
+    portWebSocket: number;
     mongoDBURL: string;
     dbName: string;
     redisHost: string;
@@ -11,7 +12,8 @@ type Config = {
 
 
 const config:Config = {
-    port: Number(process.env.PORT || 5000),
+    portHTTP: Number(process.env.PORT_HTTP),
+    portWebSocket: Number(process.env.PORT_WEB_SOCKET),
     mongoDBURL: String(process.env.MONGODB_URL),
     dbName: String(process.env.DB_NAME),
     redisHost: String(process.env.REDIS_HOST),

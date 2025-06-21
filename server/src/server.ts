@@ -1,22 +1,15 @@
-import express, { Response } from "express";
-import dotenv from 'dotenv';
-import config from "./config";
+import express from "express";
 import connectMongoDB from "./db/connectMongoDB";
-import { globalErrorHandler } from "./middlewares";
-import apiRoutes from "./routes"
-dotenv.config();
-// connectMongoDB()
+import startHTTPServer from "./http";
+import startSocketServer from "./socketHandler";
+
+connectMongoDB();
 
 const app = express();
 
-app.use(express.json({limit: "5mb"}));
-app.use(express.urlencoded({extended: true}));
+startHTTPServer(app);
+
+startSocketServer(app);
 
 
-app.use("/api", apiRoutes)
 
-app.use(globalErrorHandler as any);
-
-app.listen(config.port, ()=>{
-    console.log(`App is listening from port ${config.port}`)
-})

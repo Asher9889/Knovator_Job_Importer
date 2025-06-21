@@ -1,5 +1,6 @@
-import { fetchJobAndQueue } from "./job.controller";
+import { fetchJobAndQueue, getImportLogs } from "./job.controller";
 
 export const jobController = {
-    fetchJobAndQueue: fetchJobAndQueue
+    fetchJobAndQueue: fetchJobAndQueue,
+    getImportLogs: getImportLogs
 }

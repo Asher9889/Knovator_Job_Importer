@@ -5,13 +5,13 @@
 | 3  | 🧠 MongoDB              | Setup MongoDB Atlas project and connect Mongoose                       | ⬜ Done | Connection string tested                     |
 | 4  |                         | Create `Job.js` schema/model                                           | ⬜ Done | Fields: jobId, title, description, etc.      |
 | 5  |                         | Create `ImportLog.js` schema/model                                     | ⬜ Done | Fields: fileName, timestamp, stats, failures |
-| 6  | 🌐 API Integration      | Build `fetchAndConvertXML.js` to get jobs from API and convert to JSON | ⬜ Not Started | Uses `axios` + `xml2js`                      |
-| 7  |                         | Normalize API response and push jobs to queue                          | ⬜ Not Started | JSON job format matches MongoDB schema       |
+| 6  | 🌐 API Integration      | Build `fetchAndConvertXML.js` to get jobs from API and convert to JSON | ⬜ Done | Uses `axios` + `xml2js`                      |
+| 7  |                         | Normalize API response and push jobs to queue                          | ⬜ Done | JSON job format matches MongoDB schema       |
 | 8  |                         | Setup `node-cron` to run every hour                                    | ⬜ Not Started | Cron job working                             |
-| 9  | 📦 Queue System         | Install and configure BullMQ with Redis                                | ⬜ Not Started | Redis client working                         |
-| 10 |                         | Create and test `jobQueue.js`                                          | ⬜ Not Started | Queue initialized                            |
-| 11 |                         | Create `worker.js` to process queue: insert/update jobs                | ⬜ Not Started | Job insert/update logic complete             |
-| 12 |                         | Track counts: new, updated, failed                                     | ⬜ Not Started | Logged to `ImportLog` collection             |
+| 9  | 📦 Queue System         | Install and configure BullMQ with Redis                                | ⬜ Done | Redis client working                         |
+| 10 |                         | Create and test `jobQueue.js`                                          | ⬜ Done | Queue initialized                            |
+| 11 |                         | Create `worker.js` to process queue: insert/update jobs                | ⬜ Done | Job insert/update logic complete             |
+| 12 |                         | Track counts: new, updated, failed                                     | ⬜ Done | Logged to `ImportLog` collection             |
 | 13 | 🧪 API Routes (Backend) | Create `/api/import-logs` to get latest import history                 | ⬜ Not Started | Returns last 20 imports                      |
 | 14 | 🌐 Admin UI (Next.js)   | Create page `/import-history`                                          | ⬜ Not Started | Route created                                |
 | 15 |                         | Fetch logs using Axios from backend                                    | ⬜ Not Started | List of logs visible in UI                   |
