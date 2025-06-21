@@ -1,11 +1,11 @@
-import express from "express";
+import express, { Application } from "express";
 import connectMongoDB from "./db/connectMongoDB";
 import startHTTPServer from "./http";
-import startSocketServer from "./socketHandler";
+import startSocketServer from "./socket";
 
 connectMongoDB();
 
-const app = express();
+const app:Application = express();
 
 startHTTPServer(app);
 

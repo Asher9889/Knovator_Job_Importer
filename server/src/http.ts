@@ -1,10 +1,10 @@
 import cors from "cors";
-import express from "express";
+import express, { Application } from "express";
 import apiRoutes from "./routes"
 import { globalErrorHandler } from "./middlewares";
 import config from "./config";
 
-function startHTTPServer(app: any) {
+function startHTTPServer(app:Application) {
     try {
 
         app.use(cors({

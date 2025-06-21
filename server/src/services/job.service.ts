@@ -10,7 +10,7 @@ async function fetchJob(feed: IJobFeedAPIs): Promise<any> {
       ? await axios.get<string>(feed.fullURL)
       : await axios.get<string>(feed.baseURL!, { params: feed.params });
 
-      
+      if (response.status !== 200) return;  
 
     const jsObj = await parseStringPromise(response.data, {
       explicitArray: false,

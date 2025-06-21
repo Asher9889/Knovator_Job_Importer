@@ -5,7 +5,7 @@ import { fetchAndQueueJobs as fetchAllJobsAndAddToQueue } from "../helpers/fetch
 async function initiateCronJob() {
     try {
         await connectMongoDB();
-        cron.schedule("0 * * * *", async () => {
+        cron.schedule("*/3 * * * *", async () => { // Every 3 minutes, Every hour, Every day of month, Every month, Every day of week
             console.log("⏰ Cron job triggered...");
             await fetchAllJobsAndAddToQueue();
         });
@@ -16,3 +16,4 @@ async function initiateCronJob() {
 }
 
 initiateCronJob();
+
