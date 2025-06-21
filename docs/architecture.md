@@ -1,4 +1,3 @@
-
 # 🧱 Architecture Overview
 
 **Project:** `Knovator Job Importer`  
@@ -6,6 +5,15 @@
 **Tech Stack:** `Node.js`, `Express`, `Next.js`, `Socket.IO`, `MongoDB`, `BullMQ`, `Redis`, `TypeScript`
 
 ---
+
+<h2>📊 Architecture</h2>
+
+[Click Here to see in ExcaliDraw](https://excalidraw.com/#json=NtGx28Osr02nVidNA1ZMh,LgHIBGfGhw1zKSo_LG-LMw)
+
+<img src="./architecture.png" width="800" />
+
+---
+
 ## 🧩 Why I Split `http.ts` and `socketHandler.ts`
 
 | File               | Responsibility                                                       |
